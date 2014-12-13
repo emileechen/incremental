@@ -2,8 +2,9 @@ var logText = document.getElementById("log");
 var logCount = 0;
 
 function updateLog(string) {
+	var oldLog;
 	if (logCount >= 5) {
-		oldLog = logText.substring(0, 2);
+		oldLog = logText.innerHTML.substring(0, logText.innerHTML.lastIndexOf(">"));
 	} else {
 		oldLog = logText.innerHTML;
 	}
