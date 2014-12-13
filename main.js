@@ -8,17 +8,17 @@ function goldClick(number) {
 
 
 var minions = 0;
+var minionCost = Math.floor(10 * Math.pow(1.1, minions));
 
 function buyMinion() {
-	var minionCost = Math.floor(10 * Math.pow(1.1, minions));	// calculates cost of minions
 	if (gold >= minionCost) {
 		minions = minions + 1;
 		gold = gold - minionCost;
 		document.getElementById('minions').innerHTML = minions;
     document.getElementById("gold").innerHTML = gold;
 	};
-	var nextCost = Math.floor(10 * Math.pow(1.1, minions));
-	document.getElementById('minionCost').innerHTML = nextCost
+	minionCost = Math.floor(10 * Math.pow(1.1, minions));
+	document.getElementById('minionCost').innerHTML = minionCost;
 };
 
 
@@ -28,7 +28,8 @@ function buyMinion() {
 function save() {
 	var save = {
 		gold: gold,
-		minions: minions
+		minions: minions,
+		minionCost: minionCost
 	}
 	localStorage.setItem("save",JSON.stringify(save));
 };
@@ -38,6 +39,17 @@ function load() {
 	var savegame = JSON.parse(localStorage.getItem("save"));
 	if (typeof savegame.gold !== "undefined") gold = savegame.gold;
 	if (typeof savegame.minions !== "undefined") minions = savegame.minions;
+	if (typeof savegame.minionCost !== "undefined") minionCost = savegame.minionCost;
+
+	// Set counters
+    document.getElementById("gold").innerHTML = gold;
+	document.getElementById('minions').innerHTML = minions;
+	document.getElementById('minionCost').innerHTML = minionCost;
+};
+
+
+function reset() {
+	localStorage.removeItem("save");
 };
 
 
