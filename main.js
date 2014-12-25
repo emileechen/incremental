@@ -37,6 +37,40 @@ function buyMinion() {
 
 
 
+var stick = {atk: 1, def: 0, val: 1, num: 0, des: "At least it's easy to hold."};
+
+
+function fight() {
+	var num = Math.random();
+	if (num > 0.7) {
+		gold = gold + 1;
+		document.getElementById("gold").innerHTML = gold;
+	}
+	else {
+		invUpdate(stick);
+		stick.num = stick.num + 1;
+	}
+};
+
+function invUpdate(item) {
+	if (item.num == 0) {
+		addImg(item);
+	}
+};
+
+
+function addImg(item) {
+//	var toAdd = "<img src=\"img/".concat(item.concat(".png\"\>"));
+	var toAdd = "<img src=\"img/stick.png\"\>";
+	var old = document.getElementById("inv").innerHTML;
+	toAdd = old.concat(toAdd);
+	document.getElementById("inv").innerHTML = toAdd;
+};
+
+
+
+
+
 
 
 
