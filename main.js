@@ -1,19 +1,14 @@
 var logText = document.getElementById("log");
-var logCount = 0;
 
 function updateLog(string) {
-	var oldLog;
-	if (logCount >= 5) {
-		oldLog = logText.innerHTML.substring(0, logText.innerHTML.lastIndexOf(">"));
-	} else {
-		oldLog = logText.innerHTML;
-	}
+	var oldLog = logText.innerHTML;
 	var newLog = string.concat("<br>").concat(oldLog);
 	logText.innerHTML = newLog;
-	logCount = logCount + 1;
 };
 
 
+
+//var char = {head:none; };
 
 var gold = 0;
 
@@ -90,6 +85,6 @@ window.setInterval(function(){
 }, 1000);		// fires every 1000ms
 
 
-window.setInterval(function(){
-	save();
-}, 10000);
+//window.setInterval(function(){
+//	save();
+//}, 30000);

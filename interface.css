@@ -13,13 +13,66 @@ button {
 	text-decoration: none;
 	text-transform: uppercase;
 }
+
 button:hover {
 	background: #5fa36b;
 }
 
-#gold {
+.container {
+	padding: 10px;
+	border: 2px #000000 solid;
+}
+
+.title {
+	position: relative;
+	top: -20px;
+	text-transform: uppercase;
+	font-weight: bold;
+	background-color: #000000;
+	color: #FFFFFF;
+	width:100px;
+	text-align: center;
+}
+
+
+#action {
+	position:absolute;
+	top: 50px;
+	width: 200px; 
+	height: 400px;
+	left: 25px;
+	margin: auto;
+} 
+
+#char {
+	position:absolute;
+	top: 50px;
+	width: 400px; 
+	height: 400px;
+	left: 255px;
+	margin: auto;
+} 
+
+#log {
+	position:absolute;
+	top: 50px;
+	width: 200px; 
+	height: 400px;
+	left: 685px;
+	margin: auto;
+/*	overflow-y: scroll;*/
+	text-align: left;
+} 
+
+.numDisplayBig {
 	font-weight: bold;
 	font-size: 16px;
+	display: inline-block;
+}
+
+.numDisplay {
+	display: inline-block;
+}
 }
 
 #log {

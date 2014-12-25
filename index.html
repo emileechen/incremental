@@ -1,44 +1,56 @@
 <html>
 
 	<head>
-		<title>...cliCK!</title>
+		<title>clickity click click</title>
 		<link rel="stylesheet" type="text/css" href="interface.css" />
 	</head>
 
 	<body>
-		You have <div id="gold">0</div> gold!
 
-		<br><br>
+		<div id="char" class="container">
+			<div class="title">Character</div>
+			<b>Head:</b> <span id="head">none</span> <br>
+			<b>Chest:</b> <span id="chest">none</span> <br>
+			<b>Arms:</b> <span id="arms">none</span> <br>
+			<b>Legs:</b> <span id="legs">none</span> <br>
+			<b>Feet:</b> <span id="feet">none</span> <br>
+			<b>Extra:</b> <span id="extra">none</span>
+		</div>
 
-		<button type="button" onClick="goldClick(1)">Fight!</button>
+		
+		<div id="action" class="container">
+			<div class="title">Actions</div>
+			You have <div id="gold" class="numDisplayBig">0</div> gold! <br>
 
-		<br><br>
+			<br><br>
 
-		<button type="button" onClick="buyMinion()">Buy Minion</button> <br>
-		Minions: <span id="minions">0</span><br>
-		Cost: <span id="minionCost">10</span>
+			<button type="button" onClick="goldClick(1)">Find Gold!</button>
 
+			<br><br>
 
-		<br><br>
-		<br><br>
+			<button type="button" onClick="buyMinion()">Buy Minion</button> <br>
+			Minions: <span id="minions">0</span><br>
+			Cost: <span id="minionCost">10</span>
 
-		<b>Recent Events</b><br>
-			<div id="log">
-			</div>
+			<br><br>
+			<br><br>
 
-		<br><br>
-		<br><br>
-
-
-		<button type="button" onClick="save()">Save</button>
-		<button type="button" onClick="load()">Load</button>
-		<br>
-		<button type="button" onClick="reset()">Delete Savefile</button>
-
+			<button type="button" onClick="save()">Save</button>
+			<button type="button" onClick="load()">Load</button>
+			<br>
+			<button type="button" onClick="reset()">Delete Savefile</button>
+		</div>
 
 
 
+		<div id="log" class="container">
+			<div class="title">Log</div>
+			Hello there!
+		</div>
+
+ 
 		<script type="text/javascript" src="main.js"></script>
+
 	</body>
 
 </html>
