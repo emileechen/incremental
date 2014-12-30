@@ -1,6 +1,7 @@
-var logText = document.getElementById("log");
+var logText = null;
 
 function updateLog(string) {
+	logText = document.getElementById("log");
 	var oldLog = logText.innerHTML;
 	var newLog = string.concat("<br>").concat(oldLog);
 	logText.innerHTML = newLog;
@@ -8,66 +9,72 @@ function updateLog(string) {
 
 
 
-//var char = {head:none; };
 
-var gold = 0;
 
-function goldClick(number) {
-    gold = gold + number;
-    document.getElementById("gold").innerHTML = gold;
+
+var nectar = 0;
+var nectarRate = 0;
+
+function nectarCollect(number) {
+	nectar = nectar + number;
+	updateResources();
 };
 
 
 
-var minions = 0;
-var minionCost = Math.floor(10 * Math.pow(1.1, minions));
+var workers = 0;
+var workerCost = 10;
+var workerRate = 0;
 
-function buyMinion() {
-	if (gold >= minionCost) {
-		minions = minions + 1;
-		gold = gold - minionCost;
-		document.getElementById('minions').innerHTML = minions;
-    	document.getElementById("gold").innerHTML = gold;
-		updateLog("You have bought a minion.");
+function buyWorker() {
+	if (nectar >= workerCost) {
+		workers = workers + 1;
+		nectar = nectar - workerCost;
+		updateResources();
+		updateRates();
+		updateCosts();
+		updateLog("You have recruited a worker bee.");
 	};
-	minionCost = Math.floor(10 * Math.pow(1.1, minions));
-	document.getElementById('minionCost').innerHTML = minionCost;
+	updateLog("Not enough nectar to recruit worker bee!");
+};
+
+
+var nursery = false;
+
+function buyNursery() {
+	nursery = true;
 };
 
 
 
 
-var stick = {atk: 1, def: 0, val: 1, num: 0, des: "At least it's easy to hold."};
-
-
-function fight() {
-	var num = Math.random();
-	if (num > 0.7) {
-		gold = gold + 1;
-		document.getElementById("gold").innerHTML = gold;
-	}
-	else {
-		invUpdate(stick);
-		stick.num = stick.num + 1;
-	}
+function updateResources() {
+	document.getElementById("nectar").innerHTML = addSuffix(nectar);
+	document.getElementById("workers").innerHTML = addSuffix(workers);
 };
 
-function invUpdate(item) {
-	if (item.num == 0) {
-		addImg(item);
-	}
+function updateRates() {
+	nectarRate = workers;
+	document.getElementById("nectarRate").innerHTML = addSuffix(nectarRate);
+};
+
+function updateCosts() {
+	workerCost = Math.floor(10 * Math.pow(1.1, workers));
+	document.getElementById("workerCost").innerHTML = addSuffix(workerCost);
 };
 
 
-function addImg(item) {
-//	var toAdd = "<img src=\"img/".concat(item.concat(".png\"\>"));
-	var toAdd = "<img src=\"img/stick.png\"\>";
-	var old = document.getElementById("inv").innerHTML;
-	toAdd = old.concat(toAdd);
-	document.getElementById("inv").innerHTML = toAdd;
+
+
+function addSuffix(resource) {
+	var suffixes = ["K","M","B","T","Qa","Qt","Sx","Sp","Oc","Dc"];
+	for (var i = suffixes.length - 1; i >= 0; i--) {
+		if (resource >= Math.pow(1000, i + 1)) {
+			return (resource / Math.pow(1000, i + 1)).toFixed(2) + suffixes[i];
+		};
+	};
+	return resource;
 };
-
-
 
 
 
@@ -77,10 +84,11 @@ function addImg(item) {
 
 function save() {
 	var save = {
-		gold: gold,
-		minions: minions,
-		minionCost: minionCost
-	}
+		nectar: nectar,
+		nectarRate: nectarRate,
+		workers: workers,
+		workerCost: workerCost
+	};
 	localStorage.setItem("save",JSON.stringify(save));
 	updateLog("Game is saved!");
 };
@@ -88,18 +96,19 @@ function save() {
 
 function load() {
 	var savegame = JSON.parse(localStorage.getItem("save"));
-	if (typeof savegame.gold !== "undefined") gold = savegame.gold;
-	if (typeof savegame.minions !== "undefined") minions = savegame.minions;
-	if (typeof savegame.minionCost !== "undefined") minionCost = savegame.minionCost;
+	if (typeof savegame.nectar !== "undefined") nectar = savegame.nectar;
+	if (typeof savegame.nectarRate !== "undefined") nectar = savegame.nectarRate;
+	if (typeof savegame.workers !== "undefined") workers = savegame.workers;
+	if (typeof savegame.workerCost !== "undefined") workerCost = savegame.workerCost;
 	updateLog("Game loaded!");
 	refresh();
 };
 
 
 function refresh() {
-    document.getElementById("gold").innerHTML = gold;
-	document.getElementById('minions').innerHTML = minions;
-	document.getElementById('minionCost').innerHTML = minionCost;
+	updateResources();
+	updateRates();
+	updateCosts();
 };
 
 
@@ -115,7 +124,7 @@ function reset() {
 
 
 window.setInterval(function(){
-	goldClick(minions);
+	nectarCollect(workers);
 }, 1000);		// fires every 1000ms
 
 

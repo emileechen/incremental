@@ -1,40 +1,53 @@
 <html>
 
 	<head>
-		<title>clickity click click</title>
-		<link rel="stylesheet" type="text/css" href="interface.css" />
+		<title>bee game</title>
+		<link rel="stylesheet" type="text/css" href="interface.css">
+		<script type="text/javascript" src="main.js"></script>
 	</head>
 
 	<body>
 
-		<div id="charT" class="title">Character</div>
-		<div id="char" class="container">
-			<b>Head:</b> <span id="head">none</span> <br>
-			<b>Chest:</b> <span id="chest">none</span> <br>
-			<b>Arms:</b> <span id="arms">none</span> <br>
-			<b>Legs:</b> <span id="legs">none</span> <br>
-			<b>Feet:</b> <span id="feet">none</span> <br>
-			<b>Extra:</b> <span id="extra">none</span>
+		<div id="mainT" class="title">Actions</div>
+		<div id="main" class="container">
+
+			Main Hub | Nursery
+
+			<br><br>
+
+			<button type="button" onClick="nectarCollect(1)">Collect Nectar</button>
+
+			<br><br>
+
+			<button type="button" onClick="buyWorker()">Recruit Worker</button> <br>
+			Cost: <span id="workerCost">10</span>
+
+			<br><br>
+			<button type="button" onClick="buyNursery()">Build Nursery</button> <br>
+
+
 		</div>
 
 		
-		<div id="actionT" class="title">Actions</div>
-		<div id="action" class="container">
-			You have <div id="gold" class="numDisplayBig">0</div> gold! <br>
+		<div id="resourcesT" class="title">Resources</div>
+		<div id="resources" class="container">
 
-			<br><br>
 
-			<button type="button" onClick="goldClick(1)">Find Gold!</button>
 
-			<br><br>
+			<table align="center">
+				<tr>
+					<td><span class="nectarT">Nectar</span></td>
+					<td><span id="nectar" class="numDisplay">0</span></td>
+					<td><span id="nectarRate" class="rateDisplay">0</span> nectar/s</td>
+				</tr>
+				<tr>
+					<td><span class="workerT">Workers</span></td>
+					<td><span id="workers" class="numDisplay">0</span></td>
+					<td><span id="workerRate" class="rateDisplay">0</span> workers/s</td>
+				</tr>
+			</table>
 
-			<button type="button" onClick="fight()">Fight!</button>
 
-			<br><br>
-
-			<button type="button" onClick="buyMinion()">Buy Minion</button> <br>
-			Minions: <span id="minions">0</span><br>
-			Cost: <span id="minionCost">10</span>
 
 			<br><br>
 			<br><br>
@@ -50,14 +63,6 @@
 		<div id="log" class="container">
 			Hello there!
 		</div>
-
-
-		<div id="invT" class="title">Inventory</div>
-		<div id="inv" class="container">
-		</div>
-
- 
-		<script type="text/javascript" src="main.js"></script>
 
 	</body>
 

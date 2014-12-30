@@ -35,77 +35,87 @@ button:hover {
 }
 
 
-#action {
+#resources {
 	position:absolute;
 	top: 50px;
-	width: 200px; 
+	width: 250px; 
 	height: 400px;
 	left: 25px;
 	margin: auto;
 } 
 
-#actionT {
+#resourcesT {
 	position: absolute;
 	top: 35px;
 	left: 25px;
 }
 
-#char {
+#main {
 	position: absolute;
 	top: 50px;
 	width: 400px; 
 	height: 400px;
-	left: 255px;
+	left: 305px;
 	margin: auto;
 } 
 
-#charT {
+#mainT {
 	position: absolute;
 	top: 35px;
-	left: 255px;
+	left: 305px;
 }
 
 #log {
 	position: absolute;
+	height: 300px; 
 	top: 50px;
 	width: 200px;
-	height: 300px; 
-	left: 685px;
+	left: 735px;
 	margin: auto;
-/*	overflow-y: scroll;*/
+	overflow-y: scroll;
 	text-align: left;
 }
 
 #logT {
 	position: absolute;
 	top: 35px;
-	left: 685px;
+	left: 735px;
 }
 
-#inv {
-	position: absolute;
-	top: 500px;
-	width: 860px; 
-	height: 150px;
-	left: 25px;
-	margin: auto;
-} 
 
-#invT {
-	position: absolute;
-	top: 485px;
-	left: 25px;
+
+
+table {
+	border: 0;
+	font-size: 13px;
+	text-align: left;
 }
 
-.numDisplayBig {
-	font-weight: bold;
-	font-size: 16px;
-	display: inline-block;
+table td {
+	padding: 0 5 0 5;
 }
 
 .numDisplay {
 	display: inline-block;
+	font-weight: bold;
 }
+
+.rateDisplay {
+	display: inline-block;
+}
+
+.nectarT {
+	display: inline-block;
+	font-weight: bold;
+	color: #e8a710;
+}
+
+.workerT {
+	display: inline-block;
+	font-weight: bold;
+	color: #3baae5;
+}
+
 
 #log {
 	height: 40px;
