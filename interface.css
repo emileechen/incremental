@@ -67,7 +67,7 @@ button:hover {
 
 #log {
 	position: absolute;
-	height: 300px; 
+	height: 400px; 
 	top: 50px;
 	width: 200px;
 	left: 735px;
@@ -114,9 +114,4 @@ table td {
 	display: inline-block;
 	font-weight: bold;
 	color: #3baae5;
-}
-
-
-#log {
-	height: 40px;
 }

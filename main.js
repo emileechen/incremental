@@ -34,8 +34,9 @@ function buyWorker() {
 		updateRates();
 		updateCosts();
 		updateLog("You have recruited a worker bee.");
+	} else {
+		updateLog("Not enough nectar to recruit worker bee!");
 	};
-	updateLog("Not enough nectar to recruit worker bee!");
 };
 
 
@@ -97,7 +98,7 @@ function save() {
 function load() {
 	var savegame = JSON.parse(localStorage.getItem("save"));
 	if (typeof savegame.nectar !== "undefined") nectar = savegame.nectar;
-	if (typeof savegame.nectarRate !== "undefined") nectar = savegame.nectarRate;
+	if (typeof savegame.nectarRate !== "undefined") nectarRate = savegame.nectarRate;
 	if (typeof savegame.workers !== "undefined") workers = savegame.workers;
 	if (typeof savegame.workerCost !== "undefined") workerCost = savegame.workerCost;
 	updateLog("Game loaded!");
